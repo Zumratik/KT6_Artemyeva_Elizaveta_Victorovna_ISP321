@@ -13,14 +13,18 @@
             <Label Content="Login:"></Label>
             <TextBox x:Name="LoginTextBox"></TextBox>
             <Label Content="Password:"></Label>
-            <TextBox x:Name="PasswordTextBox"></TextBox>
+            <PasswordBox x:Name="PasswordTextBox"></PasswordBox>
             <Label Content="CapchaLabel" Visibility="Hidden"></Label>
-            <TextBlock Opacity="0.8" x:Name="CapchaText" Visibility="Hidden">
-                
+            <TextBlock Opacity="0.8" x:Name="CapchaText" Visibility="Hidden" FontWeight="Bold">
+                <TextBlock.Background>
+                    <ImageBrush ImageSource="/Pictures/capcha.png">
+                        
+                    </ImageBrush>
+                </TextBlock.Background>
             </TextBlock>
             <TextBox x:Name="CapchaInput" Visibility="Collapsed" ></TextBox>
-            <Button x:Name="LogButton" Margin="10" Content ="Войти"></Button>
-            <Button x:Name="GuestButton" Margin="10" Content="Гость"></Button>
+            <Button x:Name="LogButton" Margin="10" Content ="Войти" Click="LogButton_Click"></Button>
+            <Button x:Name="GuestButton" Margin="10" Content="Гость" Click="GuestButton_Click"></Button>
             
         </StackPanel>
     </Grid>
