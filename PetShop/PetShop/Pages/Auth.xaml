@@ -14,10 +14,10 @@
             <TextBox x:Name="LoginTextBox"></TextBox>
             <Label Content="Password:"></Label>
             <PasswordBox x:Name="PasswordTextBox"></PasswordBox>
-            <Label Content="CapchaLabel" Visibility="Hidden"></Label>
-            <TextBlock Opacity="0.8" x:Name="CapchaText" Visibility="Hidden" FontWeight="Bold">
+            <Label x:Name="CapchaLabel" Content="Пройдите капчу" Visibility="Hidden"></Label>
+            <TextBlock Opacity="0.8" x:Name="CapchaText" Visibility="Hidden" FontWeight="Bold" Width="100" FontStyle="Italic">
                 <TextBlock.Background>
-                    <ImageBrush ImageSource="/Pictures/capcha.png">
+                    <ImageBrush ImageSource="/Pictures/capcha.png" Stretch="UniformToFill" TileMode="None">
                         
                     </ImageBrush>
                 </TextBlock.Background>

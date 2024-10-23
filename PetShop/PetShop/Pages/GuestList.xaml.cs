@@ -23,6 +23,20 @@ namespace PetShop.Pages
         public GuestList()
         {
             InitializeComponent();
+            Init();
+        }
+        public void Init()
+        {
+            MyList.ItemsSource = Data.TradeEntities.GetContext().Product.ToList();
+        }
+        private void SortUp_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SortDown_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

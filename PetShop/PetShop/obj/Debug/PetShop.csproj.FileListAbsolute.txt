@@ -17,3 +17,32 @@ C:\Users\comcuru\Desktop\Новая папка (2)\PetShop\PetShop\obj\Debug\Pet
 C:\Users\comcuru\Desktop\Новая папка (2)\PetShop\PetShop\obj\Debug\PetShop.exe
 C:\Users\comcuru\Desktop\Новая папка (2)\PetShop\PetShop\obj\Debug\PetShop.pdb
 C:\Users\comcuru\Desktop\Новая папка (2)\PetShop\PetShop\obj\Debug\Pages\GuestList.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\PetShop.exe.config
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\PetShop.exe
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\PetShop.pdb
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\EntityFramework.dll
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\EntityFramework.xml
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.csproj.AssemblyReference.cache
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\MainWindow.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\AdminPage.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\Auth.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\GuestList.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\App.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop_Content.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop_MarkupCompile.cache
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop_MarkupCompile.lref
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\App.baml
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\MainWindow.baml
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\Auth.baml
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\GuestList.baml
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\AdminPage.baml
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.g.resources
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.Properties.Resources.resources
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.csproj.GenerateResource.cache
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.csproj.CoreCompileInputs.cache
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.csproj.CopyComplete
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.exe
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.pdb

@@ -15,19 +15,11 @@ namespace PetShop.Data
     
     public partial class TradeEntities : DbContext
     {
-        public static TradeEntities _context;
         public TradeEntities()
             : base("name=TradeEntities")
         {
         }
-    public static TradeEntities GetContext()
-        {
-            if (_context == null)
-            {
-                _context = new TradeEntities();
-            }
-            return _context;
-        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

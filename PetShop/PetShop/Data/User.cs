@@ -27,9 +27,11 @@ namespace PetShop.Data
         public string UserPatronymic { get; set; }
         public string UserLogin { get; set; }
         public string UserPassword { get; set; }
+        public int IdUserRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
         public virtual UserRole UserRole1 { get; set; }
+        public virtual UserRole UserRole2 { get; set; }
     }
 }

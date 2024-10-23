@@ -21,7 +21,7 @@ namespace PetShop.Pages
     /// </summary>
     public partial class Auth : Page
     {
-        public static int failCount;
+        public static int failCount = 0;
         public DispatcherTimer timer;
         public Auth()
         {
@@ -54,11 +54,7 @@ namespace PetShop.Pages
                 {
                     erors.AppendLine("Введите пароль");
                 }
-                if (string.IsNullOrEmpty(CapchaInput.Text) && failCount>0)
-                {
-                    erors.AppendLine("Введите капчу");
-                    CapchaBrain();
-                }
+               
                 if (erors.Length>0)
                 {
                     failCount++;
@@ -67,6 +63,15 @@ namespace PetShop.Pages
                 }
                 if (failCount > 0)
                 {
+                    CapchaInput.Visibility = Visibility.Visible;
+                    CapchaText.Visibility = Visibility.Visible;
+                    CapchaLabel.Visibility = Visibility.Visible;
+
+                    if (string.IsNullOrEmpty(CapchaInput.Text))
+                    {
+                        erors.AppendLine("Введите капчу");
+                        CapchaBrain();
+                    }
                     if (!CapchaInput.Text.Equals(CapchaText.Text , StringComparison.Ordinal))
                     {
 
@@ -82,23 +87,40 @@ namespace PetShop.Pages
                 if (Data.TradeEntities.GetContext().User.Any(d => d.UserPassword == PasswordTextBox.Password && d.UserLogin == LoginTextBox.Text))
                 {
                     var user = Data.TradeEntities.GetContext().User.Where(d => d.UserPassword == PasswordTextBox.Password && d.UserLogin == LoginTextBox.Text).FirstOrDefault();
-                    
-                    //fkjghkjsdfg
-                    switch(user.UserRole)
-                    {
+                    Classes.Manager.CurrentUser = user;
 
+
+                    switch (user.UserRole1.Name)
+                    {
+                        case "Администратор":
+                            Classes.Manager.MainFrame.Navigate(new Pages.AdminPage());
+                            break;
+                        case "Менеджер":
+                            Classes.Manager.MainFrame.Navigate(new Pages.GuestList());
+                            break;
+                        case "Клиент":
+                            Classes.Manager.MainFrame.Navigate(new Pages.GuestList());
+                            break;
                     }
+
+                    CapchaInput.Visibility = Visibility.Hidden;
+                    CapchaText.Visibility = Visibility.Hidden;
+                    CapchaLabel.Visibility = Visibility.Hidden;
+                    CapchaText.Text = "";
+                    failCount = 0;
+                    CapchaBrain();
+                    MessageBox.Show("Успешно", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Учетная запись не найдена", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Учетная запись не найдена", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     failCount++;
                     return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
