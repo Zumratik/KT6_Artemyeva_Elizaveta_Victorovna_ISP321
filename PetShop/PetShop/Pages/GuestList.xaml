@@ -20,10 +20,10 @@
             <Label x:Name="FIO" Margin="10"  VerticalAlignment="Center" HorizontalAlignment="Right" > </Label>
         </Grid>
         <Grid Grid.Row="1" >
-            <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="10" Width="150" ></TextBox>
-            <CheckBox x:Name="SortUp" Checked="SortUp_Checked" HorizontalAlignment="Left" Margin="190,0,0,0" Content="Сортировать по убыванию"  VerticalAlignment="Center" Width="200"></CheckBox>
+            <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="10" Width="150" TextChanged="SearchBox_TextChanged" ></TextBox>
+            <CheckBox x:Name="SortUp" Checked="SortUp_Checked" HorizontalAlignment="Left" Margin="190,0,0,0" Content="Сортировать по возрастанию"  VerticalAlignment="Center" Width="200"></CheckBox>
             <CheckBox x:Name="SortDown" Checked="SortDown_Checked" HorizontalAlignment="Left" Margin="400,0,0,0" Content="Сортировать по убыванию"  VerticalAlignment="Center" Width="200" ></CheckBox>
-            <ComboBox x:Name="Manufacturer" HorizontalAlignment="Right" Width="200" Margin="5"></ComboBox>
+            <ComboBox x:Name="Manufacturer" HorizontalAlignment="Right" Width="200" Margin="5" DisplayMemberPath="Name" SelectionChanged="Manufacturer_SelectionChanged"></ComboBox>
         </Grid>
         <Grid Grid.Row="2">
             
@@ -63,6 +63,6 @@
             </ListView>
             
         </Grid>
-        <Button Content="Выйти" x:Name="Back" Grid.Row="3"></Button>
+        <Button Content="Назад" x:Name="Back" Grid.Row="3" Click="Back_Click"></Button>
     </Grid>
 </Page>

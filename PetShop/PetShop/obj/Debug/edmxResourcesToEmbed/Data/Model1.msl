@@ -128,7 +128,7 @@
       <EntityTypeMapping TypeName="TradeModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="IdUserRole" ColumnName="IdUserRole" />
           <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserPatronymic" ColumnName="UserPatronymic" />

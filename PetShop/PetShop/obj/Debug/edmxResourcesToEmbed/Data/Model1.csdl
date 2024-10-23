@@ -25,7 +25,7 @@
     <Property Name="IdStatus" Type="Int32" Nullable="false" />
     <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
     <NavigationProperty Name="PicPoints" Relationship="Self.FK_Order_PicPoints" FromRole="Order" ToRole="PicPoints" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product1" FromRole="Order" ToRole="Product" />
     <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
   </EntityType>
   <EntityType Name="OrderStatus">
@@ -74,8 +74,8 @@
     <Property Name="Count" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
+    <Property Name="ImagePath" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Product1" FromRole="Product" ToRole="Order" />
     <NavigationProperty Name="Postavshic" Relationship="Self.FK_Product_Postavshic" FromRole="Product" ToRole="Postavshic" />
     <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ProductCategory" FromRole="Product" ToRole="ProductCategory" />
     <NavigationProperty Name="ProductName" Relationship="Self.FK_Product_ProductName" FromRole="Product" ToRole="ProductName" />
@@ -136,15 +136,15 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserRole" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdUserRole" Type="Int32" Nullable="false" />
     <Property Name="UserSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserLogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="UserRole1" Relationship="Self.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK_User_UserRole1" FromRole="User" ToRole="UserRole" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -152,7 +152,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_UserRole1" FromRole="UserRole" ToRole="User" />
   </EntityType>
   <Association Name="FK_PicPoints_Country">
     <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -190,7 +190,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Product">
+  <Association Name="FK_Order_Product1">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
@@ -286,15 +286,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_UserRole">
+  <Association Name="FK_User_UserRole1">
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserRole">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="User">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="IdUserRole" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -325,7 +325,7 @@
       <End Role="PicPoints" EntitySet="PicPoints" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+    <AssociationSet Name="FK_Order_Product1" Association="Self.FK_Order_Product1">
       <End Role="Product" EntitySet="Product" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
@@ -357,7 +357,7 @@
       <End Role="Union" EntitySet="Union" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+    <AssociationSet Name="FK_User_UserRole1" Association="Self.FK_User_UserRole1">
       <End Role="UserRole" EntitySet="UserRole" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>

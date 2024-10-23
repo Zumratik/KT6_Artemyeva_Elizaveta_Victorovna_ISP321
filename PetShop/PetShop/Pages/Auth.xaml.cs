@@ -90,7 +90,7 @@ namespace PetShop.Pages
                     Classes.Manager.CurrentUser = user;
 
 
-                    switch (user.UserRole1.Name)
+                    switch (user.UserRole.Name)
                     {
                         case "Администратор":
                             Classes.Manager.MainFrame.Navigate(new Pages.AdminPage());
@@ -138,6 +138,7 @@ namespace PetShop.Pages
         private void GuestButton_Click(object sender, RoutedEventArgs e)
         {
             Classes.Manager.MainFrame.Navigate(new Pages.GuestList());
+            Classes.Manager.CurrentUser = null;
         }
     }
 }

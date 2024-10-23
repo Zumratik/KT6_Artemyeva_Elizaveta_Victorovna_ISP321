@@ -5,10 +5,72 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PetShop.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AdminPage">
+      d:DesignHeight="650" d:DesignWidth="800"
+      Title="Магазин по продаже товаров для животных-просмотр товаров для животных">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label x:Name="CountLabel" Margin="10" Width="50" VerticalAlignment="Center" HorizontalAlignment="Left"></Label>
+            <Label x:Name="FIO" Margin="10"  VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="10" Width="150" TextChanged="SearchBox_TextChanged" ></TextBox>
+            <CheckBox x:Name="SortUp" Checked="SortUp_Checked" HorizontalAlignment="Left" Margin="190,0,0,0" Content="Сортировать по  возрастанию"  VerticalAlignment="Center" Width="200"></CheckBox>
+            <CheckBox x:Name="SortDown" Checked="SortDown_Checked" HorizontalAlignment="Left" Margin="400,0,0,0" Content="Сортировать по убыванию"  VerticalAlignment="Center" Width="200" ></CheckBox>
+            <ComboBox x:Name="Manufacturer" HorizontalAlignment="Right" Width="200" Margin="5" DisplayMemberPath="Name" SelectionChanged="Manufacturer_SelectionChanged"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="2">
+
+            <ListView x:Name="MyList" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="MyGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="250"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
+                                <Image.Source>
+                                    <Binding Path="ImagePath">
+                                        <Binding.TargetNullValue>
+                                            <BitmapImage UriSource="/Pictures/picture.png">
+
+                                            </BitmapImage>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2">
+                                <Label Content="{Binding ProductName.Name,StringFormat={} Наименование товара: {0}}"></Label>
+                                <TextBlock Text="{Binding Description,StringFormat={} Описание: {0}}"></TextBlock>
+                                <Label Content="{Binding Proizvoditel.Name,StringFormat={} Производитель: {0}}"></Label>
+                                <Label Content="{Binding Price,StringFormat={} Цена: {0}}"></Label>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Count,StringFormat={} Наличие на складе: {0}}" Grid.Column="4"></TextBlock>
+                            <StackPanel Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button Content="Удалить" x:Name="Delete" Grid.Row="3" Click="Delete_Click" Margin="5"></Button>
+                                <Button Content="Изменить" x:Name="Edit" Grid.Row="3" Click="Edit_Click" Margin="5"></Button>
+                            </StackPanel>
+                            
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+        <Button Content="Назад" x:Name="Back" Grid.Row="3" Click="Back_Click" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5"></Button>
+        <Button Content="Добавить" x:Name="Add" Grid.Row="3" Click="Add_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5"></Button>
     </Grid>
 </Page>

@@ -20,7 +20,7 @@ namespace PetShop.Classes
                 string path = Directory.GetCurrentDirectory() + @"/img/" + i.ImageName;
                 if (File.Exists(path))
                 {
-                    i.ImagePath = File.ReadAllBytes(path).ToString();
+                    i.ImagePath = File.ReadAllBytes(path);
                 }
 
             }

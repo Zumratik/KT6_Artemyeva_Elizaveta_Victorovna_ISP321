@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище TradeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище TradeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="Id" />
@@ -69,7 +69,7 @@
           <Property Name="Count" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="image" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -120,7 +120,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="IdUserRole" Type="int" Nullable="false" />
           <Property Name="UserSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -343,7 +343,8 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TradeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -372,7 +373,7 @@
           <Property Name="IdStatus" Type="Int32" Nullable="false" />
           <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
           <NavigationProperty Name="PicPoints" Relationship="Self.FK_Order_PicPoints" FromRole="Order" ToRole="PicPoints" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product1" FromRole="Order" ToRole="Product" />
           <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
         </EntityType>
         <EntityType Name="OrderStatus">
@@ -421,8 +422,8 @@
           <Property Name="Count" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
+          <Property Name="ImagePath" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Product1" FromRole="Product" ToRole="Order" />
           <NavigationProperty Name="Postavshic" Relationship="Self.FK_Product_Postavshic" FromRole="Product" ToRole="Postavshic" />
           <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_ProductCategory" FromRole="Product" ToRole="ProductCategory" />
           <NavigationProperty Name="ProductName" Relationship="Self.FK_Product_ProductName" FromRole="Product" ToRole="ProductName" />
@@ -483,17 +484,15 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserRole" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdUserRole" Type="Int32" Nullable="false" />
           <Property Name="UserSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserLogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
-          <NavigationProperty Name="UserRole1" Relationship="Self.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
-          <Property Name="IdUserRole" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="UserRole2" Relationship="TradeModel.FK_User_UserRole1" FromRole="User" ToRole="UserRole" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_User_UserRole1" FromRole="User" ToRole="UserRole" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -501,8 +500,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="TradeModel.FK_User_UserRole1" FromRole="UserRole" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_UserRole1" FromRole="UserRole" ToRole="User" />
         </EntityType>
         <Association Name="FK_PicPoints_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -540,7 +538,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Product">
+        <Association Name="FK_Order_Product1">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -636,15 +634,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_UserRole">
+        <Association Name="FK_User_UserRole1">
           <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserRole">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="IdUserRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -675,7 +673,7 @@
             <End Role="PicPoints" EntitySet="PicPoints" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+          <AssociationSet Name="FK_Order_Product1" Association="Self.FK_Order_Product1">
             <End Role="Product" EntitySet="Product" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
@@ -707,27 +705,11 @@
             <End Role="Union" EntitySet="Union" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
-            <End Role="UserRole" EntitySet="UserRole" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_UserRole1" Association="TradeModel.FK_User_UserRole1">
+          <AssociationSet Name="FK_User_UserRole1" Association="Self.FK_User_UserRole1">
             <End Role="UserRole" EntitySet="UserRole" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_User_UserRole1">
-          <End Type="TradeModel.UserRole" Role="UserRole" Multiplicity="1" />
-          <End Type="TradeModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserRole">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="IdUserRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -860,8 +842,8 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="TradeModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="IdUserRole" ColumnName="IdUserRole" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUserRole" ColumnName="IdUserRole" />
                 <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserPatronymic" ColumnName="UserPatronymic" />

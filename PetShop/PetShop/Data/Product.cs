@@ -33,7 +33,7 @@ namespace PetShop.Data
         public string Count { get; set; }
         public string Description { get; set; }
         public string ImageName { get; set; }
-        public string ImagePath { get; set; }
+        public byte[] ImagePath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }

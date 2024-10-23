@@ -64,7 +64,7 @@
     <Property Name="Count" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
-    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="ImagePath" Type="image" />
   </EntityType>
   <EntityType Name="ProductCategory">
     <Key>
@@ -115,8 +115,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserRole" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IdUserRole" Type="int" Nullable="false" />
     <Property Name="UserSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="UserPatronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -154,7 +154,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Order_Product">
+  <Association Name="FK_Order_Product1">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
@@ -262,15 +262,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_UserRole">
+  <Association Name="FK_User_UserRole1">
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserRole">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="User">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="IdUserRole" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -297,7 +297,7 @@
       <End Role="PicPoints" EntitySet="PicPoints" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+    <AssociationSet Name="FK_Order_Product1" Association="Self.FK_Order_Product1">
       <End Role="Product" EntitySet="Product" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
@@ -333,7 +333,7 @@
       <End Role="Union" EntitySet="Union" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+    <AssociationSet Name="FK_User_UserRole1" Association="Self.FK_User_UserRole1">
       <End Role="UserRole" EntitySet="UserRole" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>

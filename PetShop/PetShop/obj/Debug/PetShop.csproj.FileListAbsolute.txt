@@ -46,3 +46,5 @@ C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetSh
 C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.csproj.CopyComplete
 C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.exe
 C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\PetShop.pdb
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\AddEdit.g.cs
+C:\Users\comcuru\Desktop\KT6_Artemyeva_Elizaveta_Victorovna_ISP321\PetShop\PetShop\obj\Debug\Pages\AddEdit.baml
